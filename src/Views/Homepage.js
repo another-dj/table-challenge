@@ -6,7 +6,6 @@ function Homepage() {
   const [users, setUsers] = useState([]);
   const [filteredUserlist, setFilteredUserlist] = useState([]);
   const [sort, setSort] = useState(["ASC", "name"]);
-  // const [sortUser, setSortUser] = useState("ASC");
 
   const fetchData = async () => {
     try {
@@ -16,26 +15,14 @@ function Homepage() {
       const json = await response.json();
       setUsers(json);
       setFilteredUserlist(json);
-      console.log("sucess", json);
     } catch (error) {
-      console.log("error", error);
+      console.error("error", error);
     }
   };
 
   useEffect(() => {
     fetchData();
   }, []);
-
-  // const filteredData = users.filter((el) => {
-  //   if (searchText === "") {
-  //     return el;
-  //   } else {
-  //     return (
-  //       el.name.toLowerCase().includes(searchText) ||
-  //       el.username.toLowerCase().includes(searchText)
-  //     );
-  //   }
-  // });
 
   const sortHandler = (list) =>
     sort[0] === "ASC"
@@ -49,19 +36,6 @@ function Homepage() {
   const inputHandler = (e) => {
     const lowerCase = e.target.value.toLowerCase();
     setSearchText(lowerCase);
-    // console.log("my-input", lowerCase);
-
-    // const filteredUsers = users.filter((user) => {
-    //   return (
-    //     user.name.toLowerCase().includes(lowerCase) ||
-    //     user.username.toLowerCase().includes(lowerCase)
-    //   );
-    // });
-
-    // setFilteredUserlist(filteredUsers);
-
-    // setFilteredUserlist(filteredUsers);
-    // console.log("state after changes", filteredUsers);
   };
 
   const triggerSearch = () => {

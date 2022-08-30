@@ -11,53 +11,12 @@ function List({ userlist, onSort, sort }) {
     init();
   }, [userlist]);
 
-  // const filteredData = users.filter((el) => {
-  //   if (props.input === "") {
-  //     return el;
-  //   } else {
-  //     return (
-  //       el.name.toLowerCase().includes(props.input) ||
-  //       el.username.toLowerCase().includes(props.input)
-  //     );
-  //   }
-  // });
-
-  // const sortNames = () => {
-  //   if (sortName === "ASC") {
-  //     const sortedUsers = [...users].sort((a, b) => {
-  //       return a.name.localeCompare(b.name);
-  //     });
-  //     setUsers(sortedUsers);
-  //     setSortName("DESC");
-  //   } else if (sortName === "DESC") {
-  //     const sortedUsers = [...users].sort((a, b) => {
-  //       return b.name.localeCompare(a.name);
-  //     });
-  //     setUsers(sortedUsers);
-  //     setSortName("ASC");
-  //   }
-  // };
-
   const sortHandler = (value) => {
     if (sort[0] === "ASC") {
       onSort(["DESC", value]);
     } else {
       onSort(["ASC", value]);
     }
-
-    // if (sortUser === "ASC") {
-    //   const sortedUsers = [...users].sort((a, b) => {
-    //     return a.username.localeCompare(b.username);
-    //   });
-    //   setUsers(sortedUsers);
-    //   setSortUser("DESC");
-    // } else if (sortUser === "DESC") {
-    //   const sortedUsers = [...users].sort((a, b) => {
-    //     return b.username.localeCompare(a.username);
-    //   });
-    //   setUsers(sortedUsers);
-    //   setSortUser("ASC");
-    // }
   };
 
   const sortHighlightStyle = (value) =>
